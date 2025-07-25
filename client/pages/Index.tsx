@@ -255,12 +255,23 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+      <section className="relative py-32 px-4 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://image.tmdb.org/t/p/original/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg')`,
+          }}
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/70" />
+
+        {/* Content */}
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent drop-shadow-2xl">
             Track films you've watched.
           </h2>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg">
             Save those you want to see. Tell your friends what's good.
           </p>
         </div>
