@@ -179,6 +179,32 @@ const movies: Movie[] = [
 
 export default function Index() {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [likedMovies, setLikedMovies] = useState<Set<number>>(new Set());
+  const [watchlistMovies, setWatchlistMovies] = useState<Set<number>>(new Set());
+
+  const toggleLike = (movieId: number) => {
+    setLikedMovies(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(movieId)) {
+        newSet.delete(movieId);
+      } else {
+        newSet.add(movieId);
+      }
+      return newSet;
+    });
+  };
+
+  const toggleWatchlist = (movieId: number) => {
+    setWatchlistMovies(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(movieId)) {
+        newSet.delete(movieId);
+      } else {
+        newSet.add(movieId);
+      }
+      return newSet;
+    });
+  };
 
   const renderStars = (rating: number) => {
     const stars = [];
