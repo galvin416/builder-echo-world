@@ -338,13 +338,31 @@ export default function Index() {
                             </span>
                           </div>
                           <div className="flex space-x-2">
-                            <Button size="sm" variant="outline" className="border-gray-600 hover:bg-gray-800">
-                              <Heart className="w-4 h-4 mr-1" />
-                              Like
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => toggleLike(movie.id)}
+                              className={`border-gray-600 transition-all duration-200 ${
+                                likedMovies.has(movie.id)
+                                  ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
+                                  : 'hover:bg-gray-800'
+                              }`}
+                            >
+                              <Heart className={`w-4 h-4 mr-1 ${likedMovies.has(movie.id) ? 'fill-current' : ''}`} />
+                              {likedMovies.has(movie.id) ? 'Liked' : 'Like'}
                             </Button>
-                            <Button size="sm" variant="outline" className="border-gray-600 hover:bg-gray-800">
-                              <Bookmark className="w-4 h-4 mr-1" />
-                              Watchlist
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => toggleWatchlist(movie.id)}
+                              className={`border-gray-600 transition-all duration-200 ${
+                                watchlistMovies.has(movie.id)
+                                  ? 'bg-orange-600 border-orange-600 text-white hover:bg-orange-700'
+                                  : 'hover:bg-gray-800'
+                              }`}
+                            >
+                              <Bookmark className={`w-4 h-4 mr-1 ${watchlistMovies.has(movie.id) ? 'fill-current' : ''}`} />
+                              {watchlistMovies.has(movie.id) ? 'In Watchlist' : 'Watchlist'}
                             </Button>
                             <Button size="sm" variant="outline" className="border-gray-600 hover:bg-gray-800">
                               <Share2 className="w-4 h-4" />
