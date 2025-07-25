@@ -255,7 +255,7 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-32 px-4 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
